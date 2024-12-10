@@ -1,0 +1,9 @@
+{
+  "name": "WorldWideWeb",
+  "bundleIdentifier": "ca.bomberfish.worldwideweb",
+  "version": "1.0.0",
+  "description": "Web Browser for SolarOS",
+  "webview": false,
+  "iconName": "globe.desk.fill.svg",
+  "src": ""
+}

@@ -1,0 +1,10 @@
+{
+  "name": "System Preferences",
+  "bundleIdentifier": "ca.bomberfish.SolarPrefs",
+  "version": "1.0.0",
+  "description": "System Preferences",
+  "webview": false,
+  "src": "",
+  "iconName": "gear.svg",
+  "frameless": true
+}

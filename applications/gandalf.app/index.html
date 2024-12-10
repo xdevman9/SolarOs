@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>Gandalf</title>
+        <link rel="stylesheet" type="text/css" href="/css/solarbase.css" />
+    </head>
+    <body>
+        <img src="gandalf.gif" style="width: 100%; height: 100%" />
+    </body>
+    <script>
+        let audio = new Audio("epicsaxguy.mp3");
+        audio.play();
+        audio.addEventListener("ended", function () {
+            audio.play();
+        });
+    </script>
+</html>

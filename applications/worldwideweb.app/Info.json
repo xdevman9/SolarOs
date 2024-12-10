@@ -1,0 +1,10 @@
+{
+	"name": "WorldWideWeb",
+	"bundleIdentifier": "ca.bomberfish.worldwideweb",
+	"version": "1.0.0",
+	"description": "Web Browser for SolarOS, based on the Scramjet interception proxy",
+	"webview": false,
+	"iconName": "globe.desk.fill.svg",
+	"src": ""
+  }
+  

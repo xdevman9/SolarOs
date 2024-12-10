@@ -1,0 +1,62 @@
+<html>
+
+<head>
+	<title>System Preferences</title>
+</head>
+
+<body>
+	<ul style="list-style: none">
+		<li>
+			<input id="system-prefs-debug-checkbox" type="checkbox" />
+			<label>Debug Mode</label>
+		</li>
+		<li>
+			<input id="system-prefs-perf-checkbox" type="checkbox" />
+			<label>Performance Mode</label>
+		</li>
+		<li>
+			<label>Wisp Server</label>
+			<input id="wisp-server" type="text" />
+		</li>
+	</ul>
+</body>
+<script>
+
+	console.warn("system prefs script loaded");
+	let debugCheckbox = document.getElementById("system-prefs-debug-checkbox");
+	let perfCheckbox = document.getElementById("system-prefs-perf-checkbox");
+	let wispServerInput = document.getElementById("wisp-server");
+	debugCheckbox.addEventListener("change", () => {
+		console.log("debugCheckbox.checked", debugCheckbox.checked);
+		if (debugCheckbox.checked) {
+			window.localStorage.setItem("debug", "true");
+			document.getElementById("debugwindow").classList.remove("hidden");
+		} else {
+			window.localStorage.setItem("debug", "false");
+			document.getElementById("debugwindow").classList.add("hidden");
+		}
+	});
+	perfCheckbox.addEventListener("change", () => {
+		console.log("perfCheckbox.checked", perfCheckbox.checked);
+		if (perfCheckbox.checked) {
+			window.localStorage.setItem("noblur", "true");
+			document.body.classList.add("noblur");
+		} else {
+			window.localStorage.setItem("noblur", "false");
+			document.body.classList.remove("noblur");
+		}
+	});
+	wispServerInput.addEventListener("change", () => {
+		console.log("wispServerInput.value", wispServerInput.value);
+		window.localStorage.setItem("wisp-server", wispServerInput.value);
+	});
+	wispServerInput.value = window.localStorage.getItem("wisp-server") || "wss://wisp.mercurywork.shop/";
+	if (window.localStorage.getItem("debug") === "true") {
+		debugCheckbox.checked = true;
+	}
+	if (window.localStorage.getItem("noblur") === "true") {
+		perfCheckbox.checked = true;
+	}
+</script>
+
+</html>

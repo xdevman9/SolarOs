@@ -1,0 +1,155 @@
+<html>
+
+<head>
+	<title>Tour</title>
+	<link rel="stylesheet" type="text/css" href="/css/solarbase.css" />
+	<style>
+
+		@keyframes fade-in {
+			from {
+				opacity: 0;
+			}
+		}
+
+		@keyframes fade-out {
+			to {
+				opacity: 0;
+			}
+		}
+
+		@keyframes slide-from-right {
+			from {
+				transform: translateX(30px);
+			}
+		}
+
+		@keyframes slide-to-left {
+			to {
+				transform: translateX(-30px);
+			}
+		}
+
+		::view-transition-old(setup) {
+			animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+				300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+		}
+
+		::view-transition-new(setup) {
+			animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+				300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+		}
+
+		#setup {
+			margin: 0.4rem;
+			margin-inline: 2rem;
+		}
+
+		#inner {
+			view-transition-name: setup;
+		}
+
+		#msg {
+			font-weight: bold;
+			font-size: 1.2rem;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="setup">
+		<div id="inner"></div>
+		<button id="advance">Next &#x279c;</button>
+	</div>
+</body>
+<script>
+	const inner = document.getElementById('inner');
+	const steps = [
+		`
+			<h1>Welcome to solarOS!</h1>
+			<p>solarOS is the future of webOSes. We are excited to have you on board.</p>
+			<p>Let's get you up and running.</p>
+		`,
+
+		`
+			<h1>Features</h1>
+			<p>solarOS is a webOS that is designed to be fast, secure, and easy to use.</p>
+			<p>It is built on top of the latest web technologies and is designed to be as lightweight as possible, using plain HTML, CSS, and JavaScript.</p>
+			<p>Some of the features of solarOS include:</p>
+			<ul>
+				<li>An sleek and intuitive user interface</li>
+				<li>A near-native web browsing experience, powered by the innovative Scramjet interception proxy</li>
+				<li>A Linux terminal emulator, powered by v86</li>
+			</ul>
+		`,
+		`
+		<h1>Basics</h1>
+		<p>solarOS's design is inspired by existing operating systems. As such, it should be familiar to most users.</p>
+		<p>At the bottom of the screen, you will find the taskbar. This is where you can access your currently open windows, as well as the application menu.</p>
+		<p>The application menu can be opened by clicking the solarOS logo in the bottom-left corner of the screen, or by pressing the Windows key on your keyboard (or, on a Mac, Control).</p>
+		<p>From the application menu, you can access all of your installed applications, as well as System Preferences.</p>
+		`
+	];
+
+	const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+	const isWebKit = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+	if (isFirefox) {
+		steps.splice(2, 0, `
+			<h1>Compatibility Warning</h1>
+			<p>solarOS is designed to work best in Chromium-based browsers, but it should work in most modern browsers.</p>
+			<p>However, some features may not work as expected in Firefox. For the best experience, we recommend using a Chromium-based browser.</p>
+			<p>Here are some caveats to be aware of when using solarOS in Firefox:</p>
+			<ul>
+				<li>Animations in the Calendar, Calculator, and Tour applications may not work as expected</li>
+				<li>WorldWideWeb may be non-functional</li>
+			</ul>
+		`);
+	}
+
+	if (isWebKit) {
+		steps.splice(2, 0, `
+			<h1>Compatibility Warning</h1>
+			<p>solarOS is designed to work best in Chromium-based browsers, but it should work in most modern browsers.</p>
+			<p>However, some features may not work as expected in Safari. For the best experience, we recommend using a Chromium-based browser.</p>
+			<p>Here are some caveats to be aware of when using solarOS in Safari:</p>
+			<ul>
+				<li>WorldWideWeb may be non-functional</li>
+			</ul>
+		`);
+	}
+
+	let step = 0;
+	inner.innerHTML = steps[step];
+	document.getElementById("advance").addEventListener('click', () => {
+		step++;
+		// if (step === steps.length - 1) {
+		// 	const msg = document.createElement('p');
+		// 	msg.id = 'msg';
+		// 	msg.textContent = 'Setup is now complete. You can now close this window.';
+		// 	document.getElementById("advance").replaceWith(msg);
+		// }
+		if (step === steps.length) {
+			Array.from(document.getElementById("photon-allWindows").children).forEach(child => {
+				if (child.id.startsWith('ca.bomberfish.solaroobe')) {
+					closeWindow(child.id);
+				}
+			});
+			localStorage.setItem('setup-complete', true);
+		} else {
+			if (step === steps.length - 1) {
+				document.getElementById("advance").textContent = 'Finish';
+			}
+
+			if (!document.startViewTransition) {
+				inner.innerHTML = steps[step];
+			} else {
+				document.startViewTransition(() => {
+					inner.innerHTML = steps[step];
+				});
+			}
+		}
+	});
+
+</script>
+
+</html>

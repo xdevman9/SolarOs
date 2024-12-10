@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>WorldWideWeb</title>
+		<!-- <link rel="icon" href="favicon.webp" /> -->
+		<link rel="prefetch" href="/scram/scram/scramjet.worker.js" />
+		<link rel="prefetch" href="/scram/scram/scramjet.shared.js" />
+		<style>
+			body,
+			html,
+			#app {
+				/* width: 100vw; */
+				height: 96vh;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+
+			@keyframes fade {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+		</style>
+        <link rel="stylesheet" type="text/css" href="/css/solarbase.css" />
+	</head>
+
+	<body>
+		<script src="./dl.js"></script>
+		<script src="/scram/baremux/index.js" defer></script>
+		<script src="/scram/scram/scramjet.controller.js"></script>
+		<script src="/scram/config.js"></script>
+		<script src="./ui.js" defer></script>
+	</body>
+</html>

@@ -1,0 +1,11 @@
+{
+	"name": "Minecraft: Java Edition",
+	"bundleIdentifier": "com.mojang.minecraft",
+	"version": "1.8.8",
+	"description": "",
+	"webview": true,
+	"src": "https://eaglercraft.com/mc/1.8.8-wasm",
+	"iconName": "mc.png",
+	"frameless": false
+  }
+  

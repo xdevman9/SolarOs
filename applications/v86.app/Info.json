@@ -1,0 +1,10 @@
+{
+	"name": "Terminal",
+	"bundleIdentifier": "sh.copy.v86",
+	"version": "1.0.0",
+	"description": "A terminal emulator for SolarOS, based on the v86 x86 emulator.",
+	"webview": false,
+	"iconName": "terminal.svg",
+	"src": "",
+	"frameless": false
+}

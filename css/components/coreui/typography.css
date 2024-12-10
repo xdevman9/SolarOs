@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=block");
+:root {
+    --font-body: "DM Sans", system-ui, Arial, sans-serif;
+    --font-display: "Space Grotesk", system-ui, Arial, sans-serif;
+    --font-mono: "DM Mono", ui-monospace, monospace;
+}
+
+p {
+    font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-display);
+}

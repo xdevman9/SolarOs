@@ -1,0 +1,11 @@
+{
+	"name": "Calendar",
+	"bundleIdentifier": "ca.bomberfish.solarcal",
+	"version": "1.0.0",
+	"description": "Calendar",
+	"webview": false,
+	"src": "",
+	"iconName": "calendar.svg",
+	"frameless": false
+  }
+  

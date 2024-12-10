@@ -1,0 +1,30 @@
+button {
+    appearance: none;
+    border: none;
+    padding: 0.6em 0.8em;
+    border-radius: var(--radius-lg);
+    font-size: 0.9em;
+    cursor: pointer;
+    background-color: var(--color-fg);
+    color: var(--color-bg);
+    font-family: var(--font-body);
+    transition-timing-function: ease-in-out;
+    transition:
+        background-color 0.2s,
+        transform 0.2s,
+        filter 0.2s;
+}
+
+button.large {
+    padding: 0.75em 0.6em;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: var(--color-accent);
+}
+
+button:active {
+    transform: scale(0.994);
+    filter: brightness(0.9);
+}

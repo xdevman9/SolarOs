@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>About</title>
+        <link rel="stylesheet" type="text/css" href="/css/solarbase.css" />
+        <style>
+        #about {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 0.2rem;
+            margin-inline: calc(50% - 10rem);
+            height: 100%;
+
+            h1 {
+                margin-bottom: 0.75rem;
+                margin-top: 0.25rem;
+
+				span {
+					color: var(--color-accent);
+				}
+            }
+
+            .logo {
+                /* width: 3rem; */
+                height: 4rem;
+				filter: var(--filter-accent);
+            }
+
+            * {
+                margin: 0;
+            }
+        }
+        </style>
+    </head>
+    <div id="about">
+        <img src="/resources/logo.svg" class="logo" />
+        <h1>About <span>SolarOS</span></h1>
+        <p id="os-ver">Operating System Version&nbsp;</p>
+        <p id="os-wm-ver">Photon Window Manager Version&nbsp;</p>
+        <p id="browser">Browser: <span id="ua"></span></p>
+    </div>
+
+    <script>
+    document.getElementById('os-ver').innerText += globalThis.SOLAROS_VERSION;
+    document.getElementById('os-wm-ver').innerText += globalThis.PHOTON_VERSION;
+    document.getElementById('ua').innerText = navigator.userAgent;
+    </script>
+</html>

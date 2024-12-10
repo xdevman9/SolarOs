@@ -1,0 +1,10 @@
+{
+  "name": "Tour",
+  "bundleIdentifier": "ca.bomberfish.solaroobe",
+  "version": "1.0.0",
+  "description": "Get to know SolarOS",
+  "webview": false,
+  "src": "",
+  "iconName": "slider.horizontal.below.sun.max.svg",
+  "frameless": true
+}

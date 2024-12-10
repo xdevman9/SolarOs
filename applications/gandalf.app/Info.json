@@ -1,0 +1,9 @@
+{
+  "name": "Gandalf",
+  "bundleIdentifier": "ca.bomberfish.saxophone",
+  "version": "1.0.0",
+  "description": "funny video",
+  "webview": false,
+  "src": "",
+  "iconName": "rockSaruman.jpg"
+}

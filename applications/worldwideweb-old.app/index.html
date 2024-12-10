@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>WorldWideWeb</title>
+        <link rel="stylesheet" type="text/css" href="/css/solarbase.css" />
+        <link rel="stylesheet" type="text/css" href="./style.css" />
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/libcurl.js@latest/libcurl.js"
+            onload="libcurl.load_wasm('https://cdn.jsdelivr.net/npm/libcurl.js@latest/libcurl.wasm');"
+        ></script>
+        <script defer src="./load.js"></script>
+    </head>
+    <body>
+        <form id="form">
+            <input
+                type="url"
+                name="address"
+                id="address"
+                placeholder="Enter URL"
+            />
+            <button disabled type="submit" id="go" width="8%">&#x279c;</button>
+        </form>
+        <iframe
+            id="frame"
+            width="100%"
+            height="100%"
+            src="about:blank"
+            name="content"
+        ></iframe>
+    </body>
+</html>

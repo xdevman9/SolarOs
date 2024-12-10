@@ -1,0 +1,182 @@
+#calendar-dates {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-gap: 1px;
+}
+
+#calendar-days {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-gap: 1px;
+}
+
+#calendar-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 7rem;
+	padding-inline: 1.5rem;
+
+	h1 {
+		font-family: var(--font-display);
+		font-size: min(2.5rem, 5vw);
+		view-transition-name: header;
+	}
+}
+
+button {
+	all: unset;
+	cursor: pointer;
+	appearance: none;
+	border: none;
+	background-color: transparent;
+	font-size: 2rem;
+	color: var(--color-fg);
+	fill: var(--color-fg);
+	transition: color 0.2s, fill 0.2s, transform 0.2s;
+	font-family: var(--font-display);
+	text-align: center;
+
+	width: 0.9rem;
+	/* height: 1.2rem; */
+
+	svg {
+		width: 100%;
+		height: auto;
+	}
+
+	&:hover {
+		transition: color 0.2s, fill 0.2s, transform 0.2s;
+		background-color: transparent;
+
+		svg {
+			fill: var(--color-accent);
+		}
+
+		color: var(--color-accent);
+	}
+
+	&:active {
+		transform: scale(0.95);
+	}
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	backdrop-filter: blur(34px);
+	-webkit-backdrop-filter: blur(34px);
+}
+
+* {
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+#nav {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+
+#calendar-wrapper {
+	height: calc(100vh - 7rem);
+}
+
+#calendar-days {
+	height: 1.5rem;
+	text-align: center;
+}
+
+#calendar-dates {
+	height: calc(100% - 1.5rem);
+	view-transition-name: cal;
+}
+
+.calendar-date {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+
+	span {
+		font-family: var(--font-display);
+		font-size: 4vmin;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		aspect-ratio: 1/1;
+		width: 50%;
+		transition: background-color 0.2s, color 0.2s;
+		/* background-color: var(--color-fg);
+		color: var(--color-bg); */
+
+		&:hover {
+			background-color: color-mix(in srgb, var(--color-accent) 25%, transparent);
+			transition: background-color 0.2s, color 0.2s;
+		}
+	}
+
+	&.calendar-date-today span {
+		background-color: var(--color-accent);
+		color: var(--color-bg);
+	}
+}
+
+/* https://developer.chrome.com/docs/web-platform/view-transitions/same-document#customize_the_transition */
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+}
+
+@keyframes fade-out {
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes slide-from-right {
+	from {
+		transform: translateX(30px);
+	}
+}
+
+@keyframes slide-to-left {
+	to {
+		transform: translateX(-30px);
+	}
+}
+
+::view-transition-old(header),
+::view-transition-old(cal) {
+	animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+		300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+	filter: none;
+}
+
+::view-transition-new(header),
+::view-transition-new(cal) {
+	animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+		300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+	filter: none;
+}
+
+
+/* ::view-transition,
+::view-transition-old(cal),
+::view-transition-old(header),
+::view-transition-new(cal),
+::view-transition-new(header),
+::view-transition-group(cal),
+::view-transition-group(header),
+::view-transition-image-pair(cal),
+::view-transition-image-pair(header) {
+	filter: blur(0);
+} */
+
+/* ::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 500s;
+} */

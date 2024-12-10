@@ -1,0 +1,14 @@
+:root {
+    --color-accent: #f9e2af;
+	--color-error: #ffa0a0;
+	--color-success: #a0ffa0;
+    --color-fg: color-mix(in srgb, var(--color-accent) 2%, #fff);
+    --color-bg: color-mix(in srgb, var(--color-accent) 2%, #010101);
+	--filter-accent: brightness(0) saturate(100%) invert(88%) sepia(72%) saturate(358%)
+	hue-rotate(310deg) brightness(104%) contrast(95%);
+
+	/* --surface-bright: #242220;
+	--surface: #0c0a0a; */
+	--surface-bright: color-mix(in srgb, var(--color-accent), var(--color-bg) 85.5%);
+	--surface: color-mix(in srgb, var(--color-accent), var(--color-bg) 95.2%);
+}

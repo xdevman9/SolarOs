@@ -1,0 +1,96 @@
+<!doctype html>
+
+<html>
+    <head>
+        <title>solarOS</title>
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+		<link rel="prefetch" href="/scram/scram/scramjet.worker.js" />
+		<link rel="prefetch" href="/scram/scram/scramjet.shared.js" />
+		<link rel="prefetch" href="/scram/baremux/worker.js" />
+		<meta name="theme-color" content="#000000" />
+		<meta name="description" content="A webOS for the future." />
+    </head>
+
+    <body>
+        <div id="current-tootltip"></div>
+        <div id="loader">
+            <div id="loader-inner">
+                <img src="/resources/logo.svg" class="logo" />
+                <h1>solarOS</h1>
+                <div id="loader-bar" class="indeterminate">
+                    <div id="loader-stick"></div>
+                    <span id="loader-ball"></span>
+                    <div id="loader-progress">
+                        <span id="loader-ball"></span>
+                    </div>
+                </div>
+                <p id="loader-status">Loading</p>
+            </div>
+        </div>
+        <div id="photon-main" class="min">
+            <div id="debugwindow" class="mat-thin bright hidden">
+                <button
+                    onclick="document.getElementById('debugwindow').classList.toggle('min')"
+                    style="background: none; color: white"
+                    id="debugmin"
+                >
+                    Toggle
+                </button>
+                <h2>Debug</h2>
+                <div id="debugctrl">
+                    <!-- <input
+                        name="blurcontrol"
+                        type="checkbox"
+                        onchange="document.body.classList.toggle('noblur')"
+                    />
+                    <label for="blurcontrol">Disable Blur</label> -->
+                    <!-- <br /> -->
+                    <input
+                        name="hitboxes"
+                        type="checkbox"
+                        onchange="document.body.classList.toggle('hitboxes')"
+                    />
+                    <label for="hitboxes">Show Photon hitboxes</label>
+                </div>
+                <span id="debugwinlist"></span>
+            </div>
+            <div id="photon-allWindows"></div>
+            <div id="photon-toolTip"></div>
+        </div>
+        <script src="wm/init.js"></script>
+        <script src="wm/desktop.js"></script>
+        <script src="wm/taskbar.js"></script>
+        <script src="wm/windows.js"></script>
+        <script src="wm/applications.js"></script>
+        <script src="wm/tooltip.js"></script>
+        <script src="wm/startMenu.js"></script>
+
+        <script src="wm/main.js"></script>
+
+		<script src="/scram/baremux/index.js" ></script>
+		<script src="/scram/scram/scramjet.controller.js"></script>
+		<script src="/scram/config.js"></script>
+		<script defer>
+			const scramjet = new ScramjetController({
+				files: {
+					wasm: "/scram/scram/scramjet.wasm.js",
+					worker: "/scram/scram/scramjet.worker.js",
+					client: "/scram/scram/scramjet.client.js",
+					shared: "/scram/scram/scramjet.shared.js",
+					sync: "/scram/scram/scramjet.sync.js",
+				},
+				defaultFlags: {
+					serviceworkers: true,
+				}
+				// prefix: "/applications/worldwideweb.app/sj/",
+			});
+
+			scramjet.init("/scram_sw.js");
+			const connection = new BareMux.BareMuxConnection("/scram/baremux/worker.js");
+
+			connection.setTransport("/scram/epoxy/index.mjs", [{ wisp: window.localStorage.getItem("wisp-server") }]);
+
+		</script>
+    </body>
+</html>

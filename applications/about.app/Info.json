@@ -1,0 +1,12 @@
+{
+  "name": "About solarOS",
+  "bundleIdentifier": "ca.bomberfish.AboutApp",
+  "version": "1.0.0",
+  "description": "View details about solarOS and your system",
+  "webview": false,
+  "src": "",
+  "iconName": "logo.svg",
+  "frameless": true,
+  "width": "30rem",
+  "height": "30rem"
+}

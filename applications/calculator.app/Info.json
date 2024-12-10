@@ -1,0 +1,14 @@
+{
+	"name": "Calculator",
+	"bundleIdentifier": "ca.bomberfish.solarcalc",
+	"version": "1.0.0",
+	"description": "Calculator",
+	"webview": false,
+	"src": "",
+	"iconName": "calculator.svg",
+	"frameless": false,
+	"width": "415px",
+	"height": "550px",
+	"resizable": false
+  }
+  

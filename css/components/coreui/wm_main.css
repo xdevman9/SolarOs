@@ -1,0 +1,20 @@
+#photon-main {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    transform: scale(1);
+}
+
+#photon-main.min {
+    transform: scale(0.9);
+}
+
+#photon-main,
+#photon-main.min {
+    transition: transform 0.25s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.05s;
+}

@@ -1,0 +1,13 @@
+{
+  "applications": [
+    "about.app",
+    "welcome.app",
+    "worldwideweb.app",
+    "preferences.app",
+	"calendar.app",
+	"calculator.app",
+	"v86.app",
+    "gandalf.app",
+	"minecraft.app"
+  ]
+}

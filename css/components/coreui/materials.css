@@ -1,0 +1,79 @@
+.mat-ultrathin {
+	background: color-mix(in srgb, var(--surface), transparent 50%);
+	-webkit-backdrop-filter: blur(10px);
+	-moz-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+}
+
+.mat-thin {
+	background: color-mix(in srgb, var(--surface), transparent 40%);
+	-webkit-backdrop-filter: blur(18px);
+	-moz-backdrop-filter: blur(18px);
+	backdrop-filter: blur(18px);
+}
+
+.mat-regular {
+	background: color-mix(in srgb, var(--surface), transparent 30%);
+	-webkit-backdrop-filter: blur(26px);
+	-moz-backdrop-filter: blur(26px);
+	backdrop-filter: blur(26px);
+}
+
+.mat-thick {
+	background: color-mix(in srgb, var(--surface), transparent 20%);
+	-webkit-backdrop-filter: blur(34px);
+	-moz-backdrop-filter: blur(34px);
+	backdrop-filter: blur(34px);
+}
+
+.mat-ultrathick {
+	background: color-mix(in srgb, var(--surface), transparent 15%);
+	-webkit-backdrop-filter: blur(42px);
+	-moz-backdrop-filter: blur(42px);
+	backdrop-filter: blur(42px);
+}
+
+.mat-ultrathin.bright {
+    background: color-mix(in srgb, var(--surface-bright), transparent 50%);
+}
+
+.mat-thin.bright {
+    background: color-mix(in srgb, var(--surface-bright), transparent 40%);
+}
+
+.mat-regular.bright {
+    background: color-mix(in srgb, var(--surface-bright), transparent 30%);
+}
+
+.mat-thick.bright {
+    background: color-mix(in srgb, var(--surface-bright), transparent 20%);
+}
+
+.mat-ultrathick.bright {
+    background: color-mix(in srgb, var(--surface-bright), transparent 15%);
+}
+
+.noblur .mat-ultrathin,
+.mat-ultrathin.noblur,
+.noblur .mat-thin,
+.mat-thin.noblur,
+.noblur .mat-regular,
+.mat-regular.noblur,
+.noblur .mat-thick,
+.mat-thick.noblur,
+.noblur .mat-ultrathick
+.mat-ultrathick.noblur {
+    backdrop-filter: none;
+    /* background: var(--surface); */
+}
+
+/* .noblur .mat-ultrathin.bright,
+.mat-ultrathin.bright.noblur,
+.noblur .mat-thin.bright,
+.mat-thin.bright.noblur,
+.noblur .mat-regular.bright,
+.mat-regular.bright.noblur,
+.noblur .mat-thick.bright,
+.mat-thick.bright.noblur {
+    background: var(--surface-bright);
+} */

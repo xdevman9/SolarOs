@@ -1,0 +1,9 @@
+/* DO NOT USE THIS IN THE MAIN APP */
+@import url("main.css");
+html,
+body {
+    background: none transparent;
+    margin: initial;
+    padding: 1%;
+    overflow: initial;
+}
