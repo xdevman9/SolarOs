@@ -11,7 +11,7 @@ const scramjet = new ScramjetController({
 	},
 });
 
-scramjet.init("/scram_sw.js");
+scramjet.init("/scram/sw.js");
 
 const connection = new BareMux.BareMuxConnection("/scram/baremux/worker.js");
 
