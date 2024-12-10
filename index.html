@@ -88,7 +88,7 @@
 				// prefix: "/applications/worldwideweb.app/sj/",
 			});
 
-			scramjet.init("/scram/sw.js");
+			scramjet.init("/scram_sw.js");
 			const connection = new BareMux.BareMuxConnection("/scram/baremux/worker.js");
 
 			connection.setTransport("/scram/epoxy/index.mjs", [{ wisp: window.localStorage.getItem("wisp-server") }]);
