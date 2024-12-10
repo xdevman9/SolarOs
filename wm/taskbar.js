@@ -33,6 +33,34 @@ function initTaskbar() {
 		startKey = "control";
 	}
 
+	try {
+		JSON.parse(localStorage.getItem("pinnedApps")).forEach((app) => {
+			const appButton = document.createElement("span");
+			appButton.classList.add("photon-taskbar-item");
+			const appIcon = document.createElement("div");
+			appIcon.classList.add("photon-taskbar-item-inner");
+			try {
+				fetch(`/applications/${app}/Info.json`)
+					.then((response) => response.json())
+					.then((json) => {
+						if (json.iconName !== undefined) {
+							console.log(json.iconName);
+							appIcon.style.backgroundImage = `url(/applications/${app}/${json.iconName})`;
+						}
+					});
+			} catch (e) {
+				console.error(app, e);
+			}
+			appButton.appendChild(appIcon);
+			appButton.addEventListener("click", () => {
+				openApplication(app);
+			});
+			buttons.appendChild(appButton);
+		});
+	} catch (e) {
+		console.error(e);
+	}
+
 	document.addEventListener("keydown", (e) => {
 		if (e.key.toLowerCase() === "escape") {
 			e.preventDefault();
@@ -48,14 +76,14 @@ function initTaskbar() {
 	time.classList.add("photon-taskbar-time");
 	// time.classList.add("mat-ultrathin");
 	time.classList.add("bright");
-	time.innerText = new Date().toLocaleTimeString([], {hour12: false, day: "2-digit", month: "2-digit", year: "numeric"});
+	time.innerText = new Date().toLocaleTimeString([], { hour12: false, day: "2-digit", month: "2-digit", year: "numeric" });
 	time.addEventListener("click", () => {
 		openApplication("calendar.app");
 	})
 	taskbar.appendChild(time);
 	setInterval(() => {
 		const currentTime = new Date()
-		let timeStr = currentTime.toLocaleTimeString([], {hour12: false, day: "2-digit", month: "2-digit", year: "numeric"});
+		let timeStr = currentTime.toLocaleTimeString([], { hour12: false, day: "2-digit", month: "2-digit", year: "numeric" });
 		if (currentTime.getSeconds() % 2 === 0) {
 			timeStr = timeStr.replace(":", " ").replace(":", " ");
 		}

@@ -16,6 +16,24 @@ if (!window.localStorage.getItem("wisp-server")) {
 	window.localStorage.setItem("wisp-server", "wss://wisp.mercurywork.shop/");
 }
 
+if (!window.localStorage.getItem("debug")) {
+	window.localStorage.setItem("debug", false);
+}
+
+if (!window.localStorage.getItem("noblur")) {
+	window.localStorage.setItem("noblur", false);
+}
+
+if (!window.localStorage.getItem("pinnedApps")) {
+	window.localStorage.setItem("pinnedApps", JSON.stringify([
+		"worldwideweb.app",
+		"calendar.app",
+		"calculator.app",
+		"v86.app",
+		"preferences.app",
+	]));
+}
+
 // Initializes constants.
 const mainApp = document.getElementById("photon-main");
 const allWindows = document.getElementById("photon-allWindows");

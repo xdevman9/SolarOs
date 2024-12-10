@@ -152,13 +152,14 @@ function createWindow(contents, title, id, icon, width, height, resizable) {
 
 	let button = document.createElement("span");
 	button.classList.add("photon-taskbar-item");
+	button.classList.add("open");
 	button.id = pWindow.id + "-taskbar";
 	let inner = document.createElement("div");
 	inner.classList.add("photon-taskbar-item-inner");
 	if (icon !== undefined) {
 		inner.style.backgroundImage = `url(${icon})`;
 	}
-	button.appendChild(inner);
+	button.appendChild(inner); 
 	taskbar.querySelector(".photon-taskbar-buttons").appendChild(button);
 
 	button.addEventListener("click", () => {

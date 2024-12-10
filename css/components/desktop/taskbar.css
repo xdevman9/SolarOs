@@ -48,7 +48,7 @@ body:has(.photon-window.maximized) #photon-taskbar {
     margin: 5px;
 	/* background-image: radial-gradient(ellipse farthest-side at center bottom, color-mix(in srgb, var(--color-accent) 50%, transparent), rgba(0, 0, 0, 0) 20%); */
 
-	&::after {
+	&.open::after {
 		content: "";
 		display: block;
 		width: 100%;
