@@ -104,7 +104,7 @@ function BrowserApp() {
 		}
 	}
   `;
-	this.url = "https://duckduckgo.com";
+	this.url = "https://solar.bomberfish.ca/applications/worldwideweb.app/startpage.html";
 
 	const frame = scramjet.createFrame();
 	frame.frame.name = "scramjet";

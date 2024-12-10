@@ -6,11 +6,11 @@
 console.log("Welcome to PhotonWM!");
 console.info("[Photon] Initializing");
 
-window.PHOTON_VERSION = "0.1.0";
-window.PHOTON_CODENAME = "brown-dwarf";
+window.PHOTON_VERSION = "0.9.0";
+window.PHOTON_CODENAME = "centauri";
 
-window.SOLAROS_VERSION = "0.1.0";
-window.SOLAROS_CODENAME = "brown-dwarf";
+window.SOLAROS_VERSION = "0.9.0";
+window.SOLAROS_CODENAME = "centauri";
 
 if (!window.localStorage.getItem("wisp-server")) {
 	window.localStorage.setItem("wisp-server", "wss://wisp.mercurywork.shop/");
